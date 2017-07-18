@@ -1,7 +1,7 @@
 var hours = 0;
 var minutes = 0;
 var seconds = 0;
-var submitTime;
+var submitTimer;
 function submitTime(){
   var inputs = [document.getElementById('hours'), document.getElementById('minutes') , document.getElementById('seconds')];
   if(inputs[0].checkValidity() == false || inputs[1].checkValidity() == false || inputs[2].checkValidity() == false){
@@ -9,12 +9,31 @@ function submitTime(){
   }
   else{
     console.log("Proceeding to timer portion of app. Buyer beware");
-    for(var i = 0; i < inputs.length(); i++){
-      if(inputs[i].value == 0){
-        inputs[i] == 0;
-      }
-      else{
-        inputs[i] = inputs[i].value;
+    for(var i = 0; i < inputs.length; i++){
+      switch(i){
+        case 0:
+          if(inputs[i].value == 0){
+            hours = 0;
+          }
+          else{
+            hours = inputs[i].value;
+          }
+          break;
+        case 1:
+          if(inputs[i].value == 0){
+            minutes = 0;
+          }
+          else{
+            minutes = inputs[i].value;
+          }
+          break;
+        default:
+          if(inputs[i].value == 0){
+            seconds = 0;
+          }
+          else{
+            seconds = inputs[i].value;
+          }
       }
     }
     console.log(hours);
@@ -31,8 +50,13 @@ function pomSession() {
   seconds = 0;
   submitTime = true;
   console.log('Starting a new Pomodoro session. Buyer beware.');
+  console.log(hours);
+  console.log(minutes);
+  console.log(seconds);
   startTimer();
 }
 function startTimer(){
-
+  if(hours <=0 && minutes <= 0 && seconds <= 0){
+    alert("Congratulations, you have finished your study session. Enjoy the rest of your day!");
+  }
 }
