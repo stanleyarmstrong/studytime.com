@@ -6,7 +6,7 @@ $('#hours').click(function(){
       var a = document.createElement("A");
       var result =document.createTextNode(i);
       a.appendChild(result);
-      document.body.appendChild(a);
+      document.li.appendChild(a);
     }
   });
   //allows the user to choose their selected amount of hours
