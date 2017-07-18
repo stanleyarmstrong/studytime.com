@@ -17,33 +17,26 @@
 				</p>
 			</div>
 			<div class = 'timeAmmount'>
-					<ul id = 'hours'>
-						<div class = 'dropdown'>
-							<button  class = 'dropbtn'>
+				<ul>
+					<li>
+							<input  id = 'hours' type = 'number' max = '24' min = '0'>
 								(hours)
-							</button>
-							<div id = 'dropdownResult' class = 'dropDownContent'>
-						</div>
-					</ul>
-					<ul id = 'minutes'>
-						<div class = 'dropdown'>
-							<button class = 'dropbtn'>
+							</input>
+					</li>
+					<li>
+							<input class = 'minutes' type = 'number' max = '60' min = '0'>
 								(minutes)
-							</button>
-							<div id = 'dropdownResult' class = 'dropDownContent'>
-						</div>
-					</ul>
-					<ul id = 'seconds'>
-						<div class = 'dropdown'>
-							<button class = 'dropbtn'>
+							</input>
+					</li>
+					<li>
+							<input class = 'minutes' type = 'number' max = '60' min = '0'>
 								(seconds)
-							</button>
-							<div id = 'dropdownResult' class = 'dropDownContent'>
-						</div>
-					</ul>
+							</input>
+					</li>
+				</ul>
 			</div>
 			<div class = "submit">
-				<button onclick = 'submit()'>
+				<button onclick = 'submitTime()'>
 					Submit
 				</button>
 			</div>

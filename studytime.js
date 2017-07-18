@@ -1,18 +1,14 @@
-var hours = 24;
-var minutes = 60;
-var seconds = 60;
-$('#hours').click(function(){
-    for( var i = hours; i > 0; i--){
-      var a = document.createElement("A");
-      var result =document.createTextNode(i);
-      a.appendChild(result);
-      document.li.appendChild(a);
-    }
-  });
-  //allows the user to choose their selected amount of hours
-function dropdownMinutes(){
-
-}
-function dropdownSeconds( ){
-
+var hours = 0;
+var minutes = 0;
+var seconds = 0;
+function submitTime(){
+  var hoursInput = document.getElementById('hours');
+  var minutesInput = document.getElementsByClassName('minutes');
+  if(hoursInput.checkvalidity() == false && minutesInput.checkvalidity() == false){
+    alert('The amount of time you inserted is not valid. Try a different amount of time!');
+  }
+  else{
+    console.log("Proceeding to timer portion of app.Buyers beware");
+    return true;
+  }
 }
