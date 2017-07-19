@@ -101,7 +101,12 @@ function singleDigitChecker(){
           hours = hours;
         }
         else{
+          if(hours.toString().length == 2){
+            hours = hours;
+          }
+          else{
           hours = '0' + hours;
+          }
         }
         break;
       case 1:
@@ -109,7 +114,12 @@ function singleDigitChecker(){
           minutes = minutes;
         }
         else{
+          if(minutes.toString().length == 2){
+            minutes = minutes;
+          }
+          else{
           minutes = '0' + minutes;
+          }
         }
         break;
       default:
@@ -117,7 +127,12 @@ function singleDigitChecker(){
           seconds = seconds;
         }
         else{
-          seconds = '0' + seconds;
+          if(seconds.toString().length == 2){
+            seconds = seconds
+          }
+          else{
+            seconds = '0' + seconds;
+          }
         }
         break;
     }
