@@ -2,6 +2,8 @@ var hours = 0;
 var minutes = 0;
 var seconds = 0;
 var submitTimer;
+$('#timeRemaining').hide();
+$('.odometer').hide();
 function submitTime(){
   var inputs = [document.getElementById('hours'), document.getElementById('minutes') , document.getElementById('seconds')];
   if(inputs[0].checkValidity() == false || inputs[1].checkValidity() == false || inputs[2].checkValidity() == false){
@@ -56,6 +58,9 @@ function pomSession() {
 function startTimer(){
   $('.studyTime').hide();
   $('.timeAmmount').hide();
+  $('.submit').hide();
+  $('.odometer').show();
+  $('#timeRemaining').show();
   if(hours <=0 && minutes <= 0 && seconds <= 0){
     alert("Congratulations, you have finished your study session. Enjoy the rest of your day!");
     window.location.reload();
