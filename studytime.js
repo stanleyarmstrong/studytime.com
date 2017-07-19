@@ -39,16 +39,14 @@ function submitTime(){
     console.log(hours);
     console.log(minutes);
     console.log(seconds);
-    submitTime = true;
     startTimer();
-    return true;
   }
 }
 function pomSession() {
   hours = 0;
   minutes = 25;
   seconds = 0;
-  submitTime = true;
+  submitTimer = true;
   console.log('Starting a new Pomodoro session. Buyer beware.');
   console.log(hours);
   console.log(minutes);
@@ -56,7 +54,10 @@ function pomSession() {
   startTimer();
 }
 function startTimer(){
+  $('.studyTime').hide();
+  $('.timeAmmount').hide();
   if(hours <=0 && minutes <= 0 && seconds <= 0){
     alert("Congratulations, you have finished your study session. Enjoy the rest of your day!");
+    window.location.reload();
   }
 }
