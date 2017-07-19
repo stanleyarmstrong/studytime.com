@@ -4,7 +4,7 @@ var seconds = 0;
 var time;
 var submitTimer;
 console.log("Welcome to occassionalstudying.com! Stay for a little while and listen to some great tunes.");
-$('#timeRemaining').hide();
+$('.timeRemaining').hide();
 $('.odometer').hide();
 function submitTime(){
   var inputs = [document.getElementById('hours'), document.getElementById('minutes') , document.getElementById('seconds')];
@@ -20,9 +20,6 @@ function submitTime(){
           if(inputs[i].value == 0){
             hours = 0;
           }
-          else if(inputs[i].value > 0 && inputs[i].value <=9){
-            hours = '0' + inputs[i].value;
-          }
           else{
             hours = inputs[i].value;
           }
@@ -31,9 +28,6 @@ function submitTime(){
           if(inputs[i].value == 0){
             minutes = 0;
           }
-          else if(inputs[i].value > 0 && inputs[i].value <=9){
-            minutes = '0' + inputs[i].value;
-          }
           else{
             minutes = inputs[i].value;
           }
@@ -41,9 +35,6 @@ function submitTime(){
         default:
           if(inputs[i].value == 0){
             seconds = 0;
-          }
-          else if(inputs[i].value > 0 && inputs[i].value <=9){
-            seconds= '0' + inputs[i].value;
           }
           else{
             seconds = inputs[i].value;
@@ -73,7 +64,6 @@ function startTimer(){
   $('.submit').hide();
   $('.odometer').show();
   $('.timeRemaining').show();
-  
   deltaTime();
   if(hours <=0 && minutes <= 0 && seconds <= 0){
     alert("Congratulations, you have finished your study session. Enjoy the rest of your day!");
@@ -82,6 +72,8 @@ function startTimer(){
 }
 function deltaTime(){
   setInterval(function(){
+    singleDigitChecker();
+    $('#timeRemaining').text(hours+ ' : ' + minutes + ' : ' + seconds);
     seconds--;
     console.log(seconds);
     if(seconds === 0 && minutes > 0){
@@ -100,4 +92,34 @@ function deltaTime(){
     }
 
   }, 1000);
+}
+function singleDigitChecker(){
+  for(var i = 0; i<3; i++){
+    switch(i){
+      case 0:
+        if(hours >= 10){
+          hours = hours;
+        }
+        else{
+          hours = '0' + hours;
+        }
+        break;
+      case 1:
+        if(minutes >= 10){
+          minutes = minutes;
+        }
+        else{
+          minutes = '0' + minutes;
+        }
+        break;
+      default:
+        if(seconds >= 10){
+          seconds = seconds;
+        }
+        else{
+          seconds = '0' + seconds;
+        }
+        break;
+    }
+  }
 }
