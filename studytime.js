@@ -73,8 +73,8 @@ function startTimer(){
   $('.submit').hide();
   $('.odometer').show();
   $('.timeRemaining').show();
+  
   deltaTime();
-
   if(hours <=0 && minutes <= 0 && seconds <= 0){
     alert("Congratulations, you have finished your study session. Enjoy the rest of your day!");
     window.location.reload();
