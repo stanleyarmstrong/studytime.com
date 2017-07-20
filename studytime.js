@@ -1,14 +1,12 @@
 var hours = 0;
 var minutes = 0;
-var seconds = 0;
+var seconds = 1;
 var time;
-var submitTimer;
 //Welcome message to the site
 console.log("Welcome to occassionalstudying.com! Stay for a little while and listen to some great tunes.");
 $('.timeRemaining').hide();
-$('.odometer').hide();
 //Submits the time and verifies that the user's input was correct and then runs the startTimer function and runs the streamAudio function
-//The main of the function if you will 
+//The main of the function if you will
 function submitTime(){
   var inputs = [document.getElementById('hours'), document.getElementById('minutes') , document.getElementById('seconds')];
   if(inputs[0].checkValidity() == false || inputs[1].checkValidity() == false || inputs[2].checkValidity() == false){
@@ -37,7 +35,7 @@ function submitTime(){
           break;
         default:
           if(inputs[i].value == 0){
-            seconds = 0;
+            seconds = 1;
           }
           else{
             seconds = inputs[i].value;
@@ -71,9 +69,11 @@ function startTimer(){
   $('.submit').hide();
   $('.odometer').show();
   $('.timeRemaining').show();
+  singleDigitChecker();
+  $('#timeRemaining').text(hours + ' : ' + minutes + ' : ' + seconds);
   deltaTime();
-  if(hours <=0 && minutes <= 0 && seconds <= 0){
-    alert("Congratulations, you have finished your study session. Enjoy the rest of your day!");
+  if(hours === 0 && minutes === 0 && seconds === 0){
+    alert("Congratulations, you have finished yours study session. Enjoy the rest of your day!");
     window.location.reload();
   }
 }
@@ -95,11 +95,13 @@ function deltaTime(){
         console.log(hours);
       }
       else if(minutes === 0){
-        minutes = 59;
+        minutes = 0;
         console.log(minutes);
       }
     }
-
+    if(minutes === 0 && hours === 0 && seconds === 0){
+      clearInterval();
+    }
   }, 1000);
 }
 //Checks if the digit of the timer is a single digit or not
