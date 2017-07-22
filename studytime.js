@@ -1,6 +1,6 @@
 var hours = 0;
 var minutes = 0;
-var seconds = 1;
+var seconds = 0;
 var time;
 //Welcome message to the site
 console.log("Welcome to occassionalstudying.com! Stay for a little while and listen to some great tunes.");
@@ -35,7 +35,7 @@ function submitTime(){
           break;
         default:
           if(inputs[i].value == 0){
-            seconds = 1;
+            seconds = 0;
           }
           else{
             seconds = inputs[i].value;
@@ -80,28 +80,33 @@ function startTimer(){
 //Changes the hours,minutes, and seconds in the file
 //Changes the hours, minutes, and seconds on screen
 function deltaTime(){
-  setInterval(function(){
-    singleDigitChecker();
-    $('#timeRemaining').text(hours+ ' : ' + minutes + ' : ' + seconds);
+  var stopInterval =setInterval(function(){
+    if(minutes === 0 && hours === 0 && seconds === 0){
+      clearInterval(stopInterval);
+    }
     seconds--;
     console.log(seconds);
+    if(seconds < 0){
+      minutes--;
+      seconds = 59;
+    }
+    singleDigitChecker();
+    $('#timeRemaining').text(hours+ ' : ' + minutes + ' : ' + seconds);
     if(seconds === 0 && minutes > 0){
       seconds = 59;
       minutes--;
       console.log(minutes);
+      if(minutes === 0 && hours === 0){
+        seconds= 59;
+        console.log(seconds);
+      }
       if(minutes === 0 && hours > 0){
         minutes = 59;
         hours--;
         console.log(hours);
       }
-      else if(minutes === 0){
-        minutes = 0;
-        console.log(minutes);
-      }
-    }
-    if(minutes === 0 && hours === 0 && seconds === 0){
-      clearInterval();
-    }
+
+  }
   }, 1000);
 }
 //Checks if the digit of the timer is a single digit or not
