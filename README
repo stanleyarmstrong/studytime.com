@@ -1,1 +1,5 @@
-This is a git repository for occasionalstudying.com , previously known as studyti.me and studytime.com before the domains were taken. Occasionalstudying.com is place where students can have access to free a livestream of music to study while doing tasks and being productive. We are currently in testing and modifying the pages to look exactly as we want them to look. Javascript will run the front end of the product while Python Django will mostly run in the backend of the project. The finished build should be complete and accessible to everyone through occasionalstudying.com. After that initial release minor changes will be updated to the site. 
+I used a Mac Mini with MacOS to make a javascript file. The Javascript powers the functionality of the site.
+It writes how much time is remaining in a study session. The study.js is the program and the study.html is how you would view results and things like that.
+It's main purpose is to display a time on screen and hide elements on an html page.
+The seconds, minutes, and hours are displayed in the console as well.
+It also powers the html, buttons functionality.

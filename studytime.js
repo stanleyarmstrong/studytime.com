@@ -143,7 +143,3 @@ function singleDigitChecker(){
     }
   }
 }
-//Streams the audio from another source
-function streamAudio(){
-
-}
