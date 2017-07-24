@@ -1,5 +1,5 @@
-I used a Mac Mini with MacOS to make a javascript file. The Javascript powers the functionality of the site.
-It writes how much time is remaining in a study session. The study.js is the program and the study.html is how you would view results and things like that.
-It's main purpose is to display a time on screen and hide elements on an html page.
-The seconds, minutes, and hours are displayed in the console as well.
-It also powers the html, buttons functionality.
+This is a repository for the website occassionalstudying.com.
+The original name of the site was going to be studytime.com or studyti.me.
+The site should be available in two to four weeks depending on when the frontend is complete.
+Once the frontend is complete we will be targeting backend server based needs.
+If you like studying this is the place for you. 
