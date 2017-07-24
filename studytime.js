@@ -18,12 +18,13 @@ function submitTime(){
     for(var i = 0; i < inputs.length; i++){
       switch(i){
         case 0:
-          if(inputs[i].value == 0){
+          if(inputs[i].value === 0){
             hours = 0;
           }
           else{
             hours = inputs[i].value;
           }
+          time += (hours *3600);
           break;
         case 1:
           if(inputs[i].value == 0){
@@ -32,6 +33,7 @@ function submitTime(){
           else{
             minutes = inputs[i].value;
           }
+          time += (minutes * 60);
           break;
         default:
           if(inputs[i].value == 0){
@@ -40,8 +42,10 @@ function submitTime(){
           else{
             seconds = inputs[i].value;
           }
+          time += seconds;
       }
     }
+    time *= 1000;
     console.log(hours);
     console.log(minutes);
     console.log(seconds);
@@ -115,32 +119,14 @@ function singleDigitChecker(){
   }
 }
 function changeTime(){
-  if(seconds === 0 && minutes === 0 && hours === 0){
-    clearInterval(stopInterval);
+  time--;
+  var times = [seconds , minutes , hours];
+  for(var i = 0; i < times.length ; i++){
+    switch(i){
+      case 0:
+        if((times[i])
+    }
   }
-  seconds--;
-  if(seconds === 0){
-    if(minutes > 0){
-      minutes--;
-    }
-    else{
-      minutes = 0;
-    }
-    seconds = 59;
-  }
-
-  if(minutes===0){
-    if(hours > 0){
-      hours--;
-    }
-    else{
-      hours =0;
-    }
-    minutes = 59;
-  }
-  console.log(hours);
-  console.log(minutes);
-  console.log(seconds);
   singleDigitChecker();
   $('#timeRemaining').text(hours+ ' : ' + minutes + ' : ' + seconds);
 }
