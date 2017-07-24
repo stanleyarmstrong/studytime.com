@@ -1,7 +1,7 @@
 var hours = 0;
 var minutes = 0;
 var seconds = 0;
-var time;
+var time = 1000;
 //Welcome message to the site
 console.log("Welcome to occassionalstudying.com! Stay for a little while and listen to some great tunes.");
 $('.timeRemaining').hide();
@@ -24,7 +24,7 @@ function submitTime(){
           else{
             hours = inputs[i].value;
           }
-          time += (hours *3600);
+          time *= (hours *3600);
           break;
         case 1:
           if(inputs[i].value == 0){
@@ -33,7 +33,7 @@ function submitTime(){
           else{
             minutes = inputs[i].value;
           }
-          time += (minutes * 60);
+          time *= (minutes * 60);
           break;
         default:
           if(inputs[i].value == 0){
@@ -42,10 +42,9 @@ function submitTime(){
           else{
             seconds = inputs[i].value;
           }
-          time += seconds;
+          time *= seconds;
       }
     }
-    time *= 1000;
     console.log(hours);
     console.log(minutes);
     console.log(seconds);
@@ -82,7 +81,7 @@ function startTimer(){
 //Changes the hours,minutes, and seconds in the file
 //Changes the hours, minutes, and seconds on screen
 function deltaTime(){
-  var stopInterval =setInterval(changeTime(), 1000);
+  var stopInterval = setInterval(changeTime(time), 1000);
 }
 //Checks if the digit of the timer is a single digit or not
 //If not then it adds a 0 in front of the digit
@@ -118,15 +117,14 @@ function singleDigitChecker(){
     }
   }
 }
-function changeTime(){
-  time--;
-  var times = [seconds , minutes , hours];
-  for(var i = 0; i < times.length ; i++){
-    switch(i){
-      case 0:
-        if((times[i])
-    }
-  }
+function changeTime(t){
+  t--;
+  hours = Math.floor((t/1000/60/60) % 24);
+  minutes = Math.floor((t/1000/60) % 60);
+  seconds = Math.floor((t/1000) % 60);
   singleDigitChecker();
   $('#timeRemaining').text(hours+ ' : ' + minutes + ' : ' + seconds);
+  if(time === 0){
+    clearInterval(stopInterval);
+  }
 }
