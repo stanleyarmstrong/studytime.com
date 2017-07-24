@@ -46,7 +46,6 @@ function submitTime(){
     console.log(minutes);
     console.log(seconds);
     startTimer();
-    streamAudio();
   }
 }
 //Sets the interval of which you will study to 25 minutes and then does the same as submitTime
@@ -60,7 +59,6 @@ function pomSession() {
   console.log(minutes);
   console.log(seconds);
   startTimer();
-  streamAudio();
 }
 //Displays the time remaining on screen
 function startTimer(){
@@ -80,34 +78,7 @@ function startTimer(){
 //Changes the hours,minutes, and seconds in the file
 //Changes the hours, minutes, and seconds on screen
 function deltaTime(){
-  var stopInterval =setInterval(function(){
-    if(minutes === 0 && hours === 0 && seconds === 0){
-      clearInterval(stopInterval);
-    }
-    seconds--;
-    console.log(seconds);
-    if(seconds < 0){
-      minutes--;
-      seconds = 59;
-    }
-    singleDigitChecker();
-    $('#timeRemaining').text(hours+ ' : ' + minutes + ' : ' + seconds);
-    if(seconds === 0 && minutes > 0){
-      seconds = 59;
-      minutes--;
-      console.log(minutes);
-      if(minutes === 0 && hours === 0){
-        seconds= 59;
-        console.log(seconds);
-      }
-      if(minutes === 0 && hours > 0){
-        minutes = 59;
-        hours--;
-        console.log(hours);
-      }
-
-  }
-  }, 1000);
+  var stopInterval =setInterval(changeTime(), 1000);
 }
 //Checks if the digit of the timer is a single digit or not
 //If not then it adds a 0 in front of the digit
@@ -142,4 +113,34 @@ function singleDigitChecker(){
         break;
     }
   }
+}
+function changeTime(){
+  if(seconds === 0 && minutes === 0 && hours === 0){
+    clearInterval(stopInterval);
+  }
+  seconds--;
+  if(seconds === 0){
+    if(minutes > 0){
+      minutes--;
+    }
+    else{
+      minutes = 0;
+    }
+    seconds = 59;
+  }
+
+  if(minutes===0){
+    if(hours > 0){
+      hours--;
+    }
+    else{
+      hours =0;
+    }
+    minutes = 59;
+  }
+  console.log(hours);
+  console.log(minutes);
+  console.log(seconds);
+  singleDigitChecker();
+  $('#timeRemaining').text(hours+ ' : ' + minutes + ' : ' + seconds);
 }
