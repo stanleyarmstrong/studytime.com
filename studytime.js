@@ -15,7 +15,7 @@ function submitTime(){
   else{
     console.log("Proceeding to timer portion of app. Buyer beware");
     var u = 1;
-    for(var i = 0; i < inputs.length; i++){
+    for(var i = 0; i < inputs.length; i+=u){
       switch(i){
         case 0:
           if(inputs[i].value === 0){
@@ -45,6 +45,7 @@ function submitTime(){
           time *= seconds;
       }
     }
+    console.log("Total time remaining " + time );
     console.log(hours);
     console.log(minutes);
     console.log(seconds);
@@ -81,7 +82,19 @@ function startTimer(){
 //Changes the hours,minutes, and seconds in the file
 //Changes the hours, minutes, and seconds on screen
 function deltaTime(){
-  var stopInterval = setInterval(changeTime(time), 1000);
+  var stopInterval = setInterval(function(){
+      time-=1000;
+      //hours = Math.floor((time/1000/3600) % 24);
+      //minutes = Math.floor((time/1000/60) % 60);
+      console.log('Time remaining:' + time);
+      seconds = Math.floor((time/1000) % 60);
+      console.log('Seconds remaining: ' + seconds);
+      singleDigitChecker();
+      $('#timeRemaining').text(seconds);
+      if(time === 0){
+        clearInterval(stopInterval);
+      }
+  }, 1000);
 }
 //Checks if the digit of the timer is a single digit or not
 //If not then it adds a 0 in front of the digit
@@ -115,16 +128,5 @@ function singleDigitChecker(){
 
         break;
     }
-  }
-}
-function changeTime(t){
-  t--;
-  hours = Math.floor((t/1000/60/60) % 24);
-  minutes = Math.floor((t/1000/60) % 60);
-  seconds = Math.floor((t/1000) % 60);
-  singleDigitChecker();
-  $('#timeRemaining').text(hours+ ' : ' + minutes + ' : ' + seconds);
-  if(time === 0){
-    clearInterval(stopInterval);
   }
 }
