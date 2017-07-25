@@ -24,7 +24,8 @@ function submitTime(){
           else{
             hours = inputs[i].value;
           }
-          time *= (hours *3600);
+          var addTime = hours * 3600;
+          time *= addTime
           break;
         case 1:
           if(inputs[i].value == 0){
@@ -33,6 +34,7 @@ function submitTime(){
           else{
             minutes = inputs[i].value;
           }
+          var addTime = minutes * 60;
           time *= (minutes * 60);
           break;
         default:
