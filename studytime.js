@@ -1,7 +1,8 @@
-var hours = 0;
-var minutes = 0;
-var seconds = 0;
-var time = 1000;
+var hours;
+var minutes;
+var seconds;
+var addTime;
+var time;
 //Welcome message to the site
 console.log("Welcome to occassionalstudying.com! Stay for a little while and listen to some great tunes.");
 $('.timeRemaining').hide();
@@ -23,30 +24,33 @@ function submitTime(){
           }
           else{
             hours = inputs[i].value;
+            addTime = hours * 3600;
+            time += addTime;
           }
-          var addTime = hours * 3600;
-          time *= addTime
           break;
         case 1:
-          if(inputs[i].value == 0){
+          if(inputs[i].value === 0){
             minutes = 0;
           }
           else{
             minutes = inputs[i].value;
+            addTime = minutes * 60;
+            time += addTime;
           }
-          var addTime = minutes * 60;
-          time *= (minutes * 60);
           break;
         default:
-          if(inputs[i].value == 0){
+          if(inputs[i].value === 0){
             seconds = 0;
           }
           else{
             seconds = inputs[i].value;
+            addTime += seconds;
+            time += seconds;
           }
-          time *= seconds;
       }
     }
+    time*=1000;
+    time = Number(time);
     console.log("Total time remaining " + time );
     console.log(hours);
     console.log(minutes);
@@ -58,9 +62,12 @@ function submitTime(){
 function pomSession() {
   hours = 0;
   minutes = 25;
-  seconds = 1;
+  seconds = 0;
+  addTime = minutes * 60;
+  time += addTime;
   submitTimer = true;
   console.log('Starting a new Pomodoro session. Buyer beware.');
+  console.log(time);
   console.log(hours);
   console.log(minutes);
   console.log(seconds);
@@ -76,27 +83,11 @@ function startTimer(){
   singleDigitChecker();
   $('#timeRemaining').text(hours + ' : ' + minutes + ' : ' + seconds);
   deltaTime();
-  if(hours === 0 && minutes === 0 && seconds === 0){
-    alert("Congratulations, you have finished yours study session. Enjoy the rest of your day!");
-    window.location.reload();
-  }
 }
 //Changes the hours,minutes, and seconds in the file
 //Changes the hours, minutes, and seconds on screen
 function deltaTime(){
-  var stopInterval = setInterval(function(){
-      time-=1000;
-      //hours = Math.floor((time/1000/3600) % 24);
-      //minutes = Math.floor((time/1000/60) % 60);
-      console.log('Time remaining:' + time);
-      seconds = Math.floor((time/1000) % 60);
-      console.log('Seconds remaining: ' + seconds);
-      singleDigitChecker();
-      $('#timeRemaining').text(seconds);
-      if(time === 0){
-        clearInterval(stopInterval);
-      }
-  }, 1000);
+
 }
 //Checks if the digit of the timer is a single digit or not
 //If not then it adds a 0 in front of the digit
@@ -127,7 +118,6 @@ function singleDigitChecker(){
         else{
           seconds = '0' + seconds;
         }
-
         break;
     }
   }
