@@ -9,6 +9,7 @@ $('.timeRemaining').hide();
 //Submits the time and verifies that the user's input was correct and then runs the startTimer function and runs the streamAudio function
 //The main of the function if you will
 function submitTime(){
+  time = 0;
   var inputs = [document.getElementById('hours'), document.getElementById('minutes') , document.getElementById('seconds')];
   if(inputs[0].checkValidity() == false || inputs[1].checkValidity() == false || inputs[2].checkValidity() == false){
     alert('The amount of time you inserted is not valid. Try a different amount of time!');
@@ -50,7 +51,6 @@ function submitTime(){
       }
     }
     time*=1000;
-    time = Number(time);
     console.log("Total time remaining " + time );
     console.log(hours);
     console.log(minutes);
@@ -60,6 +60,7 @@ function submitTime(){
 }
 //Sets the interval of which you will study to 25 minutes and then does the same as submitTime
 function pomSession() {
+  time = 0;
   hours = 0;
   minutes = 25;
   seconds = 0;
@@ -87,6 +88,20 @@ function startTimer(){
 //Changes the hours,minutes, and seconds in the file
 //Changes the hours, minutes, and seconds on screen
 function deltaTime(){
+  var stopInterval = setInterval(function(){
+      time-=1000;
+      hours = Math.floor((time / 3600000) % 216000);
+      minutes = Math.floor((time / 60000) % 3600);
+      seconds = Math.floor((time/1000) % 60);
+      singleDigitChecker();
+      $('#timeRemaining').text(hours + " : " + minutes + " : " + seconds);
+      if(time <= 0){
+        clearInterval(stopInterval);
+      }
+      else{
+        return true;
+      }
+  }, 1000);
 
 }
 //Checks if the digit of the timer is a single digit or not
@@ -108,6 +123,12 @@ function singleDigitChecker(){
         }
         else{
           minutes = '0' + minutes;
+        }
+        if(minutes < 60){
+          minutes = minutes;
+        }
+        else{
+          minutes = '00';
         }
 
         break;
