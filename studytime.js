@@ -64,7 +64,7 @@ function pomSession() {
   hours = 0;
   minutes = 25;
   seconds = 0;
-  addTime = minutes * 60;
+  addTime = minutes * 60 * 1000;
   time += addTime;
   submitTimer = true;
   console.log('Starting a new Pomodoro session. Buyer beware.');
@@ -124,12 +124,14 @@ function singleDigitChecker(){
         else{
           minutes = '0' + minutes;
         }
+        /*
         if(minutes < 60){
           minutes = minutes;
         }
         else{
           minutes = '00';
         }
+        */
 
         break;
       default:
