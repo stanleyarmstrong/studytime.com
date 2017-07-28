@@ -90,8 +90,8 @@ function startTimer(){
 function deltaTime(){
   var stopInterval = setInterval(function(){
       time-=1000;
-      hours = Math.floor((time / 3600000) % 216000);
-      minutes = Math.floor((time / 60000) % 3600);
+      hours = Math.floor((time / 3600000) % 24);
+      minutes = Math.floor((time / 60000) % 60);
       seconds = Math.floor((time/1000) % 60);
       singleDigitChecker();
       $('#timeRemaining').text(hours + " : " + minutes + " : " + seconds);
@@ -110,7 +110,7 @@ function singleDigitChecker(){
   for(var i = 0; i<3; i++){
     switch(i){
       case 0:
-        if(hours.toString().length == 2){
+        if(hours.toString().length >= 2){
             hours = hours;
         }
         else{
@@ -118,7 +118,7 @@ function singleDigitChecker(){
         }
         break;
       case 1:
-        if(minutes.toString().length == 2){
+        if(minutes.toString().length >= 2){
           minutes = minutes;
         }
         else{
@@ -135,7 +135,7 @@ function singleDigitChecker(){
 
         break;
       default:
-        if(seconds.toString().length == 2){
+        if(seconds.toString().length >= 2){
           seconds = seconds
         }
         else{
@@ -144,4 +144,8 @@ function singleDigitChecker(){
         break;
     }
   }
+}
+function streamAudio(){
+  var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
 }
