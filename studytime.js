@@ -3,6 +3,8 @@ var minutes;
 var seconds;
 var addTime;
 var time;
+var client_id = "c53234aeaa1047d98d13838fe8382e14";
+var client_secret = "e5e98da9de174515840f98dafe0cde5a";
 //Welcome message to the site
 console.log("Welcome to occassionalstudying.com! Stay for a little while and listen to some great tunes.");
 $('.timeRemaining').hide();
@@ -124,15 +126,13 @@ function singleDigitChecker(){
         else{
           minutes = '0' + minutes;
         }
-        /*
+
         if(minutes < 60){
           minutes = minutes;
         }
         else{
           minutes = '00';
         }
-        */
-
         break;
       default:
         if(seconds.toString().length >= 2){
