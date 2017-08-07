@@ -55,6 +55,7 @@ function submitTime(){
     console.log(hours);
     console.log(minutes);
     console.log(seconds);
+    singleDigitChecker();
     startTimer();
   }
 }
@@ -124,15 +125,6 @@ function singleDigitChecker(){
         else{
           minutes = '0' + minutes;
         }
-        /*
-        if(minutes < 60){
-          minutes = minutes;
-        }
-        else{
-          minutes = '00';
-        }
-        */
-
         break;
       default:
         if(seconds.toString().length >= 2){
@@ -146,6 +138,5 @@ function singleDigitChecker(){
   }
 }
 function streamAudio(){
-  var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
 
 }
