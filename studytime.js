@@ -146,6 +146,4 @@ function singleDigitChecker(){
   }
 }
 function streamAudio(){
-  var audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-
 }
