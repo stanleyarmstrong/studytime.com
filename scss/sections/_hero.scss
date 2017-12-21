@@ -1,0 +1,19 @@
+/****** Hero ******/
+
+.hero {
+    text-align: right;
+    margin-right: 15rem;
+    font-family: 'Crimson Text' , serif;
+
+    h2{
+        font-size: $font-size-base * 3;
+        color: black;
+        font-weight: 100;
+        margin-right: 15rem;
+    }
+
+    p {
+        font-size: $font-size-base * 2;
+        margin-top: -3rem;
+    }
+}
