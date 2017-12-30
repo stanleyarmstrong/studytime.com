@@ -1,13 +1,16 @@
 /****** Hero ******/
+.hero{
+    margin-bottom: 3rem;
+}
 
-.hero {
+.hero__content {
     text-align: right;
     margin-right: 15rem;
     font-family: 'Crimson Text' , serif;
+    color: #737373;
 
     h2{
         font-size: $font-size-base * 3;
-        color: black;
         font-weight: 100;
         margin-right: 15rem;
     }

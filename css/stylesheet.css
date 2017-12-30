@@ -1,18 +1,41 @@
 /****** Hero ******/
 .hero {
+  margin-bottom: 3rem;
+}
+
+.hero__content {
   text-align: right;
   margin-right: 15rem;
   font-family: 'Crimson Text' , serif;
+  color: #737373;
 }
 
-.hero h2 {
+.hero__content h2 {
   font-size: 3rem;
-  color: black;
   font-weight: 100;
   margin-right: 15rem;
 }
 
-.hero p {
+.hero__content p {
   font-size: 2rem;
   margin-top: -3rem;
+}
+
+/***** Features *****/
+.features {
+  margin-left: 3rem;
+  color: #737373;
+}
+
+.features__header {
+  margin-left: 8rem;
+  font-family: 'Crimson Text' , serif;
+  font-size: 1.5rem;
+}
+
+.features__content {
+  margin-left: 25rem;
+  font-size: 1.5rem;
+  font-family: 'Crimson Text' , serif;
+  line-height: 2.25;
 }
