@@ -1,6 +1,7 @@
 /****** Hero ******/
 .hero {
-  margin-bottom: 3rem;
+  margin-bottom: 15rem;
+  margin-top: 12rem;
 }
 
 .hero__content {
@@ -21,6 +22,25 @@
   margin-top: -3rem;
 }
 
+/***** Goals *****/
+.goals {
+  margin-left: 3rem;
+  color: #737373;
+}
+
+.goals__header {
+  margin-left: 8rem;
+  font-family: 'Crimson Text' , serif;
+  font-size: 1.5rem;
+}
+
+.goals__content {
+  margin-left: 25rem;
+  font-size: 1.5rem;
+  font-family: 'Crimson Text' , serif;
+  line-height: 2.25;
+}
+
 /***** Features *****/
 .features {
   margin-left: 3rem;
@@ -35,7 +55,18 @@
 
 .features__content {
   margin-left: 25rem;
-  font-size: 1.5rem;
+  font-size: 1.9rem;
   font-family: 'Crimson Text' , serif;
-  line-height: 2.25;
+  line-height: 3;
+}
+
+/***** Footer *****/
+.footer {
+  text-align: center;
+  color: #737373;
+}
+
+.footer a {
+  text-decoration: none;
+  color: #737373;
 }
