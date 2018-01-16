@@ -1,5 +1,5 @@
-var x = 200
-var y = 200
+var x = 110
+var y = 110
 var img1 
 
 function preload()
@@ -9,18 +9,18 @@ function preload()
 
 function setup() 
 {
-   createCanvas(400, 400);
+   createCanvas(250, 250);
    background(255)
 }
 
 function draw() 
 {
-   clock(150, 150, 2)
+   clock(x, y, 2)
 }
 
 function clock(x, y, sc)
 {
-      image(img1, 55, 52)
+      image(img1, 14, 13)
    push()
       translate(x,y)
       scale(sc)
