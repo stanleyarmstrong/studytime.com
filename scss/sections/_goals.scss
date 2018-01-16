@@ -1,19 +1,40 @@
 /***** Goals *****/
 
 .goals {
-    margin-left: 3rem;
+    margin-left: 2rem;
     color: #737373;
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+
+    @include media-breakpoint-up(md) {
+        margin-left: 3rem;
+        color: #737373;
+        margin-bottom: 5rem;
+        margin-top: 5rem;
+    }
 }
 
 .goals__header {
     margin-left: 8rem;
     font-family: 'Crimson Text' , serif;
     font-size: $font-size-base * 1.5;
+
+    @include media-breakpoint-up(md) {
+        margin-left: 8rem;
+        font-family: 'Crimson Text' , serif;
+        font-size: $font-size-base * 1.5;
+    }
 }
 
 .goals__content {
-    margin-left: 25rem;
-    font-size: $font-size-base * 1.9;
+    margin-left: 5rem;
+    font-size: $font-size-base * 1.5;
     font-family: 'Crimson Text' , serif;
-    line-height: $line-height-base * 1.5;
+    line-height: $line-height-base;
+
+    @include media-breakpoint-up(md) {
+        margin-left: 25rem;
+        font-size: $font-size-base * 1.9;
+        line-height: $line-height-base * 1.5;
+    }
 }

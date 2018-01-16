@@ -3,8 +3,26 @@
     text-align: center;
     color: #737373;
 
-    a{
+    a {
         text-decoration: none;
         color: #737373;
+    }
+
+    p {
+        font-size: $font-size-base * 1.2;
+    }
+
+    @include media-breakpoint-up(md) {
+        text-align: center;
+        color: #737373;
+
+        a {
+            text-decoration: none;
+            color: #737373;
+        }
+
+        p {
+            font-size: $font-size-base * 0.75;
+        }
     }
 }
