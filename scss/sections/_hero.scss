@@ -2,23 +2,35 @@
 .hero{
     margin-bottom: 15rem;
     margin-top: 12rem;
-
 }
 
 .hero__content {
-    text-align: right;
-    margin-right: 15rem;
-    font-family: 'Crimson Text' , serif;
+    text-align: left;
     color: #737373;
 
     h2{
-        font-size: $font-size-base * 3;
+        font-size: $font-size-base * 2;
         font-weight: 100;
-        margin-right: 15rem;
+        margin-left: 25rem;
     }
 
     p {
-        font-size: $font-size-base * 2;
-        margin-top: -3rem;
+        display: none;
+        font-size: $font-size-base * 0.5;
+        margin-top: -1rem;
+        margin-left: 10rem;
+    }
+
+    @include media-breakpoint-up(md) {
+        text-align: right;
+        h2{
+            font-size: $font-size-base * 3;
+            margin-right: 15rem;
+        }
+
+        p {
+            display: inline;
+            font-size: $font-size-base * 2;
+        }
     }
 }
